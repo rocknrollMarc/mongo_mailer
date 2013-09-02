@@ -1,0 +1,10 @@
+.rvmrc
+.ruby-version
+*.gem
+*.swp
+.DS_Store
+
+tmp/
+log/
+coverage/
+config/*.yml

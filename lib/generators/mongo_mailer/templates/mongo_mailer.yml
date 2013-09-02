@@ -1,0 +1,24 @@
+development: &development
+  mongodb:
+    host: localhost
+    port: 27017
+  base_delivery_method: smtp
+  base_delivery_settings:
+    user_name: "user_name"
+    password: "password"
+    domain: "example.com"
+    address: "smtp.example.com"
+    port: 587
+    authentication: plain
+    enable_starttls_auto: true
+  emergency_delivery_method: http_api
+  emergency_delivery_settings:
+    api_url: http://mailer.example.com
+  log_level: info
+production:
+  <<: *development
+test:
+  <<: *development
+  base_delivery_method: test1
+  emergency_delivery_method: test2
+  log_level: error
