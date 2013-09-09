@@ -29,7 +29,7 @@ Run the generator:
 <pre>
 bundle exec rails generate mongo_mailer
 </pre>
-which creates `bin/mongo_mailer` (or `script/mongo_mailer` for Rails 3.x) and `config/mongo_mailer.yml.example`
+which creates `config/mongo_mailer.yml.example`
 
 Based on example configuration file, create `mongo_mailer.yml` and add it to gitignored. 
 `mongo_mailer.yml` contains configuration of mongo database and final delivery methods used by worker.
@@ -43,21 +43,21 @@ Add mongo_mailer capistrano recipies, by adding:
 <pre>
 require 'mongo_mailer/capistrano'
 </pre>
-to your `deploy.rb`. Since then you have access to `mongo_mailer:start|stop|restart` recipies.
+to your `deploy.rb`. Since then you have access to `cap mongo_mailer:start|stop|restart` recipies.
 
 ### Standalone worker
 
 Worker can be used within rails app or as a standalone application. In both cases only mongo_mailer related stuff is used - rails are never being loaded.
 
-Worker use `daemons` to daemonize the process, continuously poll mongo queue for new mail and does the final delivery.
+Worker use (https://rubygems.org/gems/daemons)[daemons] to daemonize the process, continuously poll mongo queue for new mail and does the final delivery.
 
 * to start, stop, restart worker just run:
 <pre>
-./script/mongo_mailer start|stop|restart <rails_env>
+bundle exec bin/worker start|stop|restart <rails_env>
 </pre>
 e.g.
 <pre>
-./script/mongo_mailer start production
+bundle exec bin/worker start production
 </pre>
 
 * workers activity is being loged in the app's `log` directory:
