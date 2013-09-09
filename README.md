@@ -49,16 +49,17 @@ to your `deploy.rb`. Since then you have access to `cap mongo_mailer:start|stop|
 
 Worker can be used within rails app or as a standalone application. In both cases only mongo_mailer related stuff is used - rails are never being loaded.
 
-Worker use [daemons](https://rubygems.org/gems/daemons) to daemonize the process, continuously poll mongo queue for new mail and does the final delivery.
+Worker usees [daemons](https://rubygems.org/gems/daemons) to daemonize the process, continuously polls mongo queue for new mail and does the final delivery.
 
-* to start, stop, restart worker just run:
+* to start, stop or restart worker just run:
+<pre>
+bundle exec mongo_mailer start|stop|restart <rails_env>
+</pre>
+in rails app, or:
 <pre>
 bundle exec bin/worker start|stop|restart <rails_env>
 </pre>
-e.g.
-<pre>
-bundle exec bin/worker start production
-</pre>
+in standalone version.
 
 * workers activity is being loged in the app's `log` directory:
 <pre>
