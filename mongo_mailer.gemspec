@@ -2,7 +2,7 @@
 require File.expand_path('../lib/mongo_mailer/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ['Krzysztof Knapik', 'Infakt Dev Team']
+  gem.authors       = ['Krzysztof Knapik', 'inFakt DevTeam']
   gem.email         = ['knapo@knapo.net', 'devteam@infakt.pl']
   gem.description   = %q{Rails plugin for sending asynchronous email with mongodb}
   gem.summary       = %q{Rails plugin for sending asynchronous email with mongodb}
@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.name          = 'mongo_mailer'
   gem.require_paths = ['lib']
 
-  gem.add_dependency 'activesupport', '>= 3.2.13'
+  gem.add_dependency 'activesupport', '>= 3.2.14'
   gem.add_dependency 'mail',          '~> 2.5.4'
   gem.add_dependency 'mongo',         '~> 1.8.5'
   gem.add_dependency 'bson_ext',      '~> 1.8.5'
@@ -25,7 +25,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rake',      '>= 10.0.4'
   gem.add_development_dependency 'rspec',     '~> 2.14.0'
   gem.add_development_dependency 'coveralls'
-  gem.add_development_dependency 'actionmailer', '>= 3.2.13'
+  gem.add_development_dependency 'actionmailer', '>= 3.2.14'
   
   gem.version       = MongoMailer::VERSION
 end

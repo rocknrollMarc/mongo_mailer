@@ -8,14 +8,27 @@ development: &development
     user_name: "username"
     password: "apikey"
     domain: "example.com"
-    address: "smtp.example.com"
+    address: "smtp1.example.com"
     port: 587
     authentication: plain
     enable_starttls_auto: true
-  emergency_delivery_method: http_api
+  emergency_delivery_method: smtp
   emergency_delivery_settings:
-    api_url: http://api.mailer.example.com
+    user_name: "username"
+    password: "apikey"
+    domain: "example.com"
+    address: "smtp2.example.com"
+    port: 587
+    authentication: plain
+    enable_starttls_auto: true
   log_level: info
+  daemon_options:
+    dir_mode: !ruby/symbol normal
+    log_dir: log
+    dir: pids
+    log_output: true
+    backtrace: true
+    multiple: false
 production:
   <<: *development
 test:

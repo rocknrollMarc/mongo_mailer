@@ -8,7 +8,7 @@ module MongoMailer
     end
 
     def run!
-      app_group = Daemons.run_proc(name, configuration.daemon_options) do
+      app_group = Daemons.run_proc(name, configuration.full_daemon_options) do
         mail_queue = MailQueue.instance
 
         loop do
@@ -17,7 +17,7 @@ module MongoMailer
         end
       end
 
-      puts app_group.find_applications_by_app_name(name).map{|app| app.pid.pid}.join("\n")
+      puts app_group.find_applications_by_app_name(name).map{ |app| app.pid.pid }.join("\n")
     end
   end
 end

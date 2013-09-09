@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 ENV['RAILS_ENV'] = ARGV[1] || 'development'
 
-require 'rubygems'
-require 'bundler/setup'
 require 'mongo_mailer/standalone'
 
-MongoMailer::Configuration.instance.root = File.expand_path("../..", __FILE__)
+rails_root = File.dirname(ENV['BUNDLE_GEMFILE'])
+
+MongoMailer::Configuration.instance.root = rails_root
 MongoMailer::Configuration.instance.load!
 
 MongoMailer::Worker.new.run!

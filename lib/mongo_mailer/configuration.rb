@@ -56,16 +56,12 @@ module MongoMailer
     end
 
     def lookup_delivery_method(method)
-      method = Mail::Configuration.instance.lookup_delivery_method(method.to_s)
+      method = ::Mail::Configuration.instance.lookup_delivery_method(method.to_s)
       return method unless method.is_a?(String)
 
       case method.to_sym
-      when :http_api
-        MongoMailer::DeliveryMethods::HttpAPI
-      when :test1
-        MongoMailer::DeliveryMethods::Test1Mailer
-      when :test2
-        MongoMailer::DeliveryMethods::Test2Mailer
+      when :test1 then MongoMailer::DeliveryMethods::Test1Mailer
+      when :test2 then MongoMailer::DeliveryMethods::Test2Mailer
       else
         raise "Unknown delivery method: #{method}"
       end
@@ -85,15 +81,11 @@ module MongoMailer
       ]
     end
 
-    def daemon_options
-      {
-        dir_mode:   :normal,
-        log_dir:    root.join('log').to_s,
-        dir:        root.join('pids').to_s,
-        log_output: true,
-        backtrace:  true,
-        multiple:   false
-      }
+    def full_daemon_options
+      opts = configuration[:daemon_options])
+      opts[:log_dir] = root.join(opts[:log_dir]).to_s if opts[:log_dir]
+      opts[:dir]     = root.join(opts[:dir]).to_s if opts[:dir]
+      return opts
     end
 
     def logger
