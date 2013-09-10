@@ -26,5 +26,5 @@ RSpec.configure do |config|
 end
 
 def drop_db
-  MongoMailer::Configuration.instance.mongodb.command(:dropDatabase => 1)
+  MongoMailer::Configuration.instance.mongodb.command(dropDatabase: 1)
 end
