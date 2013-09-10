@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-ENV['RAILS_ENV'] = ARGV[1] || 'development'
+ENV['RAILS_ENV'] = ENV['APP_ENV'] = ARGV[1] || 'development'
 
 require 'mongo_mailer/standalone'
 
