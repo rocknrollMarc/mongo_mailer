@@ -7,7 +7,7 @@ Capistrano::Configuration.instance.load do
     end
 
     def command_prefix
-      "cd #{current_path} && if [ -f bin/mongo_mailer ]; then SCRIPT_PATH='bin/mongo_mailer'; else SCRIPT_PATH='script/mongo_mailer'; fi && bundle exec $SCRIPT_PATH"
+      "cd #{current_path} && bundle exec mongo_mailer"
     end
 
     desc "Stop the mongo_mailer process"
