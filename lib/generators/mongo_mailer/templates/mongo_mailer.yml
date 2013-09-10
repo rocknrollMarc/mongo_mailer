@@ -25,7 +25,7 @@ development: &development
   daemon_options:
     dir_mode: !ruby/symbol normal
     log_dir: log
-    dir: pids
+    dir: log
     log_output: true
     backtrace: true
     multiple: false
