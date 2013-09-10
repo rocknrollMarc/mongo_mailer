@@ -25,10 +25,6 @@ module MongoMailer
         def deliveries
           @deliveries ||= []
         end
-
-        def deliveries=(val)
-          @deliveries = val
-        end
       end
     end
 

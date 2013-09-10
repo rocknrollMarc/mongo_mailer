@@ -9,10 +9,6 @@ module MongoMailer
       @counter       = DeliveriesCounter.instance
     end
 
-    def logger
-      Configuration.instance.logger
-    end
-
     def deliver!
       begin
         configuration.logger.info("[delivery][base] #{mail.inspect}")
