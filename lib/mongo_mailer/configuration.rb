@@ -82,7 +82,7 @@ module MongoMailer
     end
 
     def full_daemon_options
-      opts = configuration[:daemon_options])
+      opts = configuration[:daemon_options]
       opts[:log_dir] = root.join(opts[:log_dir]).to_s if opts[:log_dir]
       opts[:dir]     = root.join(opts[:dir]).to_s if opts[:dir]
       return opts
