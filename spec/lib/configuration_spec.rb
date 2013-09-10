@@ -13,9 +13,18 @@ describe MongoMailer::Configuration do
       let(:type) { :test2 }
       it { delivery_method.should be_kind_of(Class) }
     end
+    context ":http_api" do
+      let(:type) { :http_api }
+      it { delivery_method.should be_kind_of(Class) }
+    end
     context ":unknown" do
       let(:type) { :unknown }
       it { lambda { described_class.lookup_delivery_method(type) }.should raise_error }
     end
+  end
+
+  describe '.full_daemon_options' do
+    subject { described_class.instance.full_daemon_options }
+    it { should be_present }
   end
 end

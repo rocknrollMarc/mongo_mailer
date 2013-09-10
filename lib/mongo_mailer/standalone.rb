@@ -1,4 +1,5 @@
 require 'mongo_mailer'
+require 'mongo_mailer/delivery_methods/http_api'
 require 'mongo_mailer/delivery_methods/test1'
 require 'mongo_mailer/delivery_methods/test2'
 
