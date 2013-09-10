@@ -53,11 +53,11 @@ Worker usees [daemons](https://rubygems.org/gems/daemons) to daemonize the proce
 
 * to start, stop or restart worker just run:
 <pre>
-bundle exec mongo_mailer start|stop|restart <rails_env>
+bundle exec mongo_mailer start|stop|restart [rails_env]
 </pre>
 within a rails app, or:
 <pre>
-bundle exec worker start|stop|restart <app_env>
+bundle exec worker start|stop|restart [app_env]
 </pre>
 in a standalone version.
 
