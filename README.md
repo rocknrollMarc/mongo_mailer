@@ -47,7 +47,7 @@ to your `deploy.rb`. Since then you have access to `cap mongo_mailer:start|stop|
 
 ### Standalone worker
 
-Worker can be used within rails app or as a standalone application. In both cases only mongo_mailer related stuff is used - rails are never being loaded.
+Worker can be used within a rails app or as a standalone application. In both cases only mongo_mailer related stuff is used - rails are never being loaded.
 
 Worker usees [daemons](https://rubygems.org/gems/daemons) to daemonize the process, continuously polls mongo queue for new mail and does the final delivery.
 
@@ -55,18 +55,19 @@ Worker usees [daemons](https://rubygems.org/gems/daemons) to daemonize the proce
 <pre>
 bundle exec mongo_mailer start|stop|restart <rails_env>
 </pre>
-in rails app, or:
+within a rails app, or:
 <pre>
-bundle exec bin/worker start|stop|restart <rails_env>
+bundle exec worker start|stop|restart <app_env>
 </pre>
-in standalone version.
+in a standalone version.
 
-* workers activity is being loged in the app's `log` directory:
+* by default workers activity and pids are being loged in the app's `log` directory:
 <pre>
 log/mongo_mailer.output
 log/mongo_mailer.log
 log/mongo_mailer.pid
 </pre>
+you can change it, by modifying proper daemon options in `mongo_mailer.yml`.
 
 * all sent mail are logged into:
 <pre>
