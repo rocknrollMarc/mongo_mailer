@@ -1,7 +1,6 @@
 require 'active_support/all'
 require 'mail'
 require 'mongo'
-require 'excon'
 require 'daemons'
 require 'singleton'
 require 'mongo_mailer/version'

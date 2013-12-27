@@ -17,13 +17,12 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'activesupport', '>= 3.2.14'
   gem.add_dependency 'mail',          '~> 2.5.4'
-  gem.add_dependency 'mongo',         '~> 1.8.5'
-  gem.add_dependency 'bson_ext',      '~> 1.8.5'
-  gem.add_dependency 'excon',         '~> 0.20.1'
+  gem.add_dependency 'mongo',         '~> 1.9.2'
+  gem.add_dependency 'bson_ext',      '~> 1.9.2'
   gem.add_dependency 'daemons',       '~> 1.1.9'
 
   gem.add_development_dependency 'rake',      '>= 10.0.4'
-  gem.add_development_dependency 'rspec',     '~> 2.14.0'
+  gem.add_development_dependency 'rspec',     '>= 2.14.0'
   gem.add_development_dependency 'coveralls'
   gem.add_development_dependency 'actionmailer', '>= 3.2.14'
   

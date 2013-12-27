@@ -60,7 +60,6 @@ module MongoMailer
       return method unless method.is_a?(String)
 
       case method.to_sym
-      when :http_api then MongoMailer::DeliveryMethods::HttpAPI
       when :test1 then MongoMailer::DeliveryMethods::Test1Mailer
       when :test2 then MongoMailer::DeliveryMethods::Test2Mailer
       else
