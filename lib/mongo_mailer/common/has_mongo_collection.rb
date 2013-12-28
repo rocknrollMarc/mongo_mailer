@@ -16,6 +16,10 @@ module MongoMailer
     end
 
     module ClassMethods
+      def collection_name=(name)
+        @collection_name = name
+      end
+
       def collection_name
         @collection_name ||= self.name.demodulize.underscore.pluralize
       end

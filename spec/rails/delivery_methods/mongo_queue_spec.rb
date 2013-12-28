@@ -17,12 +17,17 @@ class SampleMailer < ActionMailer::Base
   end
 end
 
-describe MongoMailer::DeliveryMethods::MongoQueue do
+describe MongoMailer::DeliveryMethods::MongoQueue do    
+  before(:all) {
+    MongoMailer::MailQueue.collection_name = "mongo_queue_#{SecureRandom.hex}"
+  }
   describe '#deliver!' do
-    let(:sent_mail_id) { SampleMailer.sample.deliver! }
+    let(:sent_mail1_id) { SampleMailer.sample.deliver! }
+    let(:sent_mail2_id) { SampleMailer.sample.deliver! }
     specify {
-      sent_mail_id.should be_kind_of(BSON::ObjectId)
-      MongoMailer::MailQueue.instance.get_oldest['_id'].should == sent_mail_id
+      sent_mail1_id.should be_kind_of(BSON::ObjectId)
+      sent_mail2_id.should be_kind_of(BSON::ObjectId)
+      MongoMailer::MailQueue.instance.get_oldest['_id'].should == sent_mail1_id
     }
   end
 end
