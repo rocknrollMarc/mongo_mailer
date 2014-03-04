@@ -1,7 +1,7 @@
 # MongoMailer
 
 [![Gem Version](https://badge.fury.io/rb/mongo_mailer.png)][gem_version]
-[![Build status](https://secure.travis-ci.org/infakt/mongo_mailer.png)][travis]
+[![Build status](https://secure.travis-ci.org/infakt/mongo_mailer.png?branch=master)][travis]
 [![Code Climate](https://codeclimate.com/github/infakt/mongo_mailer.png)][codeclimate]
 [![Coverage Status](https://coveralls.io/repos/infakt/mongo_mailer/badge.png?branch=master)][coveralls]
 
